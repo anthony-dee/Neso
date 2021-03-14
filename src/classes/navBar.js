@@ -36,12 +36,6 @@ export default class NavBar {
         });
       }
     });
-
-    window.addEventListener('resize', (event) => {
-      if (window.innerWidth > 768) {
-        this.menu.removeAttribute('style');
-      }
-    });
   }
 
   openOrCloseNavMenu() {
