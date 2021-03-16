@@ -1,3 +1,5 @@
+import '../../scss/_partials/_carousel.scss';
+
 export default class Carousel {
 
   constructor(element) {
