@@ -1,3 +1,5 @@
+import '../../scss/_partials/_navbar.scss';
+
 export default class NavBar {
 
   constructor(navBar) {
