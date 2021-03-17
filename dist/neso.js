@@ -8,7 +8,7 @@
 	else
 		root["Neso"] = factory();
 })(self, function() {
-return /******/ (() => { // webpackBootstrap
+return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
@@ -16,11 +16,11 @@ return /******/ (() => { // webpackBootstrap
 /*!************************************!*\
   !*** ./src/js/classes/Carousel.js ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Carousel)
+/* harmony export */   "default": function() { return /* binding */ Carousel; }
 /* harmony export */ });
 /* harmony import */ var _scss_partials_carousel_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scss/_partials/_carousel.scss */ "./src/scss/_partials/_carousel.scss");
 
@@ -120,11 +120,11 @@ class Carousel {
 /*!**********************************!*\
   !*** ./src/js/classes/NavBar.js ***!
   \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ NavBar)
+/* harmony export */   "default": function() { return /* binding */ NavBar; }
 /* harmony export */ });
 /* harmony import */ var _scss_partials_navbar_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scss/_partials/_navbar.scss */ "./src/scss/_partials/_navbar.scss");
 /* harmony import */ var _scss_test_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../scss/test.scss */ "./src/scss/test.scss");
@@ -280,7 +280,7 @@ class NavBar {
 /*!*******************************************!*\
   !*** ./src/scss/_partials/_carousel.scss ***!
   \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -292,7 +292,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./src/scss/_partials/_navbar.scss ***!
   \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -304,7 +304,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************!*\
   !*** ./src/scss/test.scss ***!
   \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -340,52 +340,51 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 		__webpack_require__.d = function(exports, definition) {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
+/******/ 	!function() {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
+/******/ 		__webpack_require__.r = function(exports) {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
+/******/ 	}();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
+!function() {
 /*!****************************!*\
   !*** ./src/js/neso-src.js ***!
   \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NavBar": () => (/* reexport safe */ _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__.default),
-/* harmony export */   "Carousel": () => (/* reexport safe */ _classes_Carousel_js__WEBPACK_IMPORTED_MODULE_1__.default)
+/* harmony export */   "NavBar": function() { return /* reexport safe */ _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__.default; },
+/* harmony export */   "Carousel": function() { return /* reexport safe */ _classes_Carousel_js__WEBPACK_IMPORTED_MODULE_1__.default; }
 /* harmony export */ });
 /* harmony import */ var _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/NavBar.js */ "./src/js/classes/NavBar.js");
 /* harmony import */ var _classes_Carousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classes/Carousel.js */ "./src/js/classes/Carousel.js");
 
 
 
-})();
-
+}();
 /******/ 	return __webpack_exports__;
 /******/ })()
 ;

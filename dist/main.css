@@ -3,8 +3,10 @@ nav {
   top: 0;
   z-index: 10;
   background-color: #1b1b1b;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   /*transition for nav open/close animation on mobiles*/
+  -webkit-transition: all 400ms;
   transition: all 400ms;
 }
 nav .nav-list {
@@ -13,9 +15,18 @@ nav .nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   text-align: center;
 }
@@ -33,11 +44,18 @@ nav .nav-list .nav-list-item .nav-list-item-anchor.active, nav .nav-list .nav-li
 }
 nav .nav-list .nav-list-item .nav-dropdown-name {
   display: block;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 nav .nav-list .nav-list-item .nav-dropdown-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 nav .nav-list .nav-list-item .nav-dropdown-toggle-caret {
@@ -46,16 +64,25 @@ nav .nav-list .nav-list-item .nav-dropdown-toggle-caret {
 nav .nav-list .nav-list-item .nav-dropdown {
   height: 0;
   background-color: #353535;
+  -webkit-transition: opacity 200ms;
   transition: opacity 200ms;
   display: none;
 }
 nav .nav-list .nav-list-item .nav-dropdown.dropdown-show {
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 nav .nav-list .nav-list-item .nav-dropdown a {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0.5em 0;
   color: white;
@@ -86,7 +113,11 @@ nav .nav-list .nav-main.menu-open {
   opacity: 1;
 }
 nav .nav-list > .nav-list-item.nav-list-item-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -94,6 +125,9 @@ nav .nav-list > .nav-list-item.nav-list-item-main {
   nav .nav-list {
     grid-column-start: 2;
     grid-column-end: 14;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
   nav .nav-list .nav-list-item {
@@ -107,10 +141,13 @@ nav .nav-list > .nav-list-item.nav-list-item-main {
     z-index: 10;
     top: 100%;
     left: 0;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: start;
     padding: 0.4em 0;
   }
   nav .nav-list .nav-list-item .nav-dropdown a {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
     text-align: left;
@@ -122,6 +159,8 @@ nav .nav-list > .nav-list-item.nav-list-item-main {
   nav .nav-list .nav-main {
     height: auto;
     padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: static;
     opacity: 1;
@@ -137,7 +176,10 @@ body {
 
 .container {
   padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  background: -webkit-gradient(linear, left bottom, left top, from(black), to(white));
   background: linear-gradient(to top, black, white);
 }
 .container h1 {
@@ -153,7 +195,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   margin: 0.5rem 0 1.5rem;
   padding-left: 0;
@@ -165,8 +211,10 @@ body {
   width: 2rem;
   border-radius: 50%;
   background-color: white;
+  -webkit-box-shadow: 3px 5px 0 black;
   box-shadow: 3px 5px 0 black;
   opacity: 0.6;
+  -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
   cursor: pointer;
 }
@@ -174,8 +222,13 @@ body {
   opacity: 1;
 }
 .carousel .carousel-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   overflow: hidden;
   background-color: #d5dbdb;
@@ -183,6 +236,8 @@ body {
 .carousel .carousel-track .carousel-item {
   position: relative;
   width: 100%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
   flex: 0 0 100%;
 }
 .carousel .carousel-track .carousel-item .carousel-img {
@@ -203,18 +258,26 @@ body {
   left: 0;
 }
 .carousel .carousel-prev:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(213, 219, 219, 0.6)), to(transparent));
   background-image: linear-gradient(90deg, rgba(213, 219, 219, 0.6), transparent);
 }
 .carousel .carousel-next {
   right: 0;
 }
 .carousel .carousel-next:hover {
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(213, 219, 219, 0.6)), to(transparent));
   background-image: linear-gradient(270deg, rgba(213, 219, 219, 0.6), transparent);
 }
 .carousel .carousel-prev, .carousel .carousel-next {
   z-index: 20;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   position: absolute;
   top: 0;
@@ -224,6 +287,7 @@ body {
   opacity: 0.6;
 }
 .carousel .carousel-prev svg, .carousel .carousel-next svg {
+  -webkit-filter: drop-shadow(3px 5px 0 black);
   filter: drop-shadow(3px 5px 0 black);
 }
 .carousel .carousel-prev:hover, .carousel .carousel-next:hover {
