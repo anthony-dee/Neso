@@ -7,7 +7,7 @@ nav {
   z-index: 10;
   background-color: $_navBlack;
   box-sizing: border-box;
-  // transition for nav open/close animation on mobiles
+  /*transition for nav open/close animation on mobiles*/
   transition: all 400ms;
   .nav-list {
     grid-column-start: 1;

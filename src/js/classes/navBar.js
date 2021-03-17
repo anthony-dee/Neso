@@ -1,4 +1,5 @@
 import '../../scss/_partials/_navbar.scss';
+import '../../scss/test.scss';
 
 export default class NavBar {
 
