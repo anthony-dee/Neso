@@ -5,8 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // style-loader adds css in outputted js file to html in style tag
 // sass-loader handes and parses SCSS files
 
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+
 module.exports = {
-    mode: "development",
+    mode: mode,
     entry: path.resolve(__dirname, "src/js/neso-src.js"),
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -15,6 +17,9 @@ module.exports = {
         libraryTarget: "umd",
     },
     devtool: "source-map",
+    devServer: {
+        contentBase: "./dist"
+    },
     module: {
         rules: [
             {
@@ -29,7 +34,7 @@ module.exports = {
             {
                 test: /\.(s[ac]|c)ss$/i, // This regex adds support for .scss, .sass and .css file types
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    mode === 'development' ? "style-loader" :  MiniCssExtractPlugin.loader,
                     "css-loader",
                     "sass-loader",
                     "postcss-loader"
