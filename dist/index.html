@@ -4,9 +4,74 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!--<link rel="stylesheet" href="main.css">-->
+
+    <style>
+    </style>
 </head>
 <body>
-<nav></nav>
+<nav class="neso-nav">
+    <div class="nav-container">
+        <ul class="nav-list">
+            <li class="nav-list-item nav-list-item-main">
+
+                <button class="nav-menu-toggle">
+                    <span></span>
+                </button>
+            </li>
+            <li class="nav-list-item nav-main">
+                <ul class="nav-list nav-main-menu">
+                    <li class="nav-list-item">
+                        <a class="nav-list-item-anchor " href="/">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a class="nav-list-item-anchor " href="/bio">
+                            Bio
+                        </a>
+                    </li>
+                    <li class="nav-list-item nav-list-item-dropdown">
+                        <a class="nav-list-item-anchor nav-dropdown-toggle" href="#">
+                            Portfolio
+                        </a>
+                        <div class="nav-dropdown" aria-labelledby="navbarDropdown">
+                            <a href="/portfolio/cool-borders">Cool Borders</a>
+                            <a href="/portfolio/github-project-board-mockup">GitHub Project Board Mockup</a>
+                            <a href="/portfolio/rocketry-timeline">Rocketry Timeline</a>
+                            <a href="/portfolio/andrew-battye-art">Andrew Battye Art</a>
+                            <a href="/portfolio/javacalc">JavaCalc</a>
+                            <a href="/portfolio/beer-mat">Beer.Mat</a>
+                        </div>
+                    </li>
+                    <li class="nav-list-item">
+                        <a class="nav-list-item-anchor " href="/blog">
+                            Blog
+                        </a>
+                    </li>
+                    <li class="nav-list-item nav-list-item-dropdown">
+                        <a class="nav-list-item-anchor nav-beermat-logo nav-dropdown-toggle " href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Beer.Mat
+                        </a>
+                        <div class="nav-dropdown" aria-labelledby="navbarDropdown">
+                            <a href="/beerdotmat">Beer.Mat</a>
+                            <a href="/beerdotmat/history">History</a>
+                            <a href="/beerdotmat/promotional">Promotional</a>
+                            <a href="/beerdotmat/american">American</a>
+                            <a href="/beerdotmat/belgian">Belgian</a>
+                            <a href="/beerdotmat/british">British</a>
+                            <a href="/beerdotmat/czech">Czech</a>
+                            <a href="/beerdotmat/german">German</a>
+                            <a href="/beerdotmat/holland">Holland</a>
+                            <a href="/beerdotmat/irish">Irish</a>
+                            <a href="/beerdotmat/poland">Poland</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
 <script src="neso.js"></script>
 <script>
     console.log(Neso)

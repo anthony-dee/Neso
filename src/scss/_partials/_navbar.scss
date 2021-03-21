@@ -1,14 +1,22 @@
+@use "sass:color";
+
 $_navBlack: #1b1b1b;
 $_dropdownBGColor: lighten($_navBlack, 10%);
 
-nav {
+nav.neso-nav {
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: $_navBlack;
   box-sizing: border-box;
+  font-family: sans-serif;
+  color: black;
+  background-color: #bfffff;
   /*transition for nav open/close animation on mobiles*/
   transition: all 400ms;
+  .nav-container {
+    width: min(100%, 800px);
+    margin: 0 auto;
+  }
   .nav-list {
     grid-column-start: 1;
     grid-column-end: 12;
@@ -24,7 +32,7 @@ nav {
       width: 100%;
       .nav-list-item-anchor {
         display: block;
-        color: white;
+        color: black;
         text-decoration: none;
         padding: 0.5em;
         &.active, &:hover, &.nav-dropdown-show {
@@ -36,12 +44,18 @@ nav {
         box-sizing: border-box;
       }
       .nav-dropdown-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .nav-dropdown-toggle-caret {
-        margin-left: 0.5em;
+        display: inline-block;
+        &::after {
+          content: "";
+          display: inline-block;
+          height: 10px;
+          width: 10px;
+          margin-left: 0.5em;
+          background-image: url("data:image/svg+xml,%3Csvg width='2.6458mm' height='2.3207mm' version='1.1' viewBox='0 0 2.6458 2.3207' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='matrix(.66666 0 0 .66666 -27.141 -84.563)'%3E%3Cpath d='m40.876 127.01h3.6398l-1.8199 3.1521z' fill='%23000000' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='.32901' style='paint-order:normal'/%3E%3C/g%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: center;
+          text-decoration: none;
+        }
       }
       .nav-dropdown {
         height: 0;
@@ -59,7 +73,7 @@ nav {
       .nav-dropdown a {
         box-sizing: border-box;
         padding: 0.5em 0;
-        color: white;
+        color: black;
         text-decoration: none;
         white-space: nowrap;
         width: 100%;
@@ -70,15 +84,23 @@ nav {
     }
     .nav-list-item-main > .nav-menu-toggle {
       display: block;
-      background-color: transparent;
       border: 0;
       padding: 1em;
+      cursor: pointer;
+      background-color: transparent;
+      & > span {
+        display: block;
+        height: 32px;
+        width: 32px;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
       &:hover {
         background-color: $_dropdownBGColor;
       }
     }
     .nav-main {
-      background-color: $_navBlack;
       height: 0;
       opacity: 0;
       overflow: hidden;
@@ -93,8 +115,9 @@ nav {
     }
   }
 }
+
 @media screen and (min-width: 768px) {
-  nav {
+  nav.neso-nav {
     .nav-list {
       grid-column-start: 2;
       grid-column-end: 14;
@@ -131,9 +154,6 @@ nav {
         overflow: visible;
         .nav-list .nav-list-item {
           margin-right: 1em;
-        }
-        .nav-main-menu {
-
         }
       }
     }
