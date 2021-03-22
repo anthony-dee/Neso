@@ -27,9 +27,9 @@ export default class NavBar {
         this.toggleBtnClick(event);
       }
 
-      if (event.target.closest('.nav-dropdown-toggle')) {
+      /*if (event.target.closest('.nav-dropdown-toggle')) {
         this.openOrCloseNavDropdown(event);
-      }
+      }*/
     }, false);
 
     this.navBar.closest('body').addEventListener('click', (event) => {
