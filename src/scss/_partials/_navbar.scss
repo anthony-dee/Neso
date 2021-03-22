@@ -51,6 +51,7 @@ nav.neso-nav {
         color: black;
         text-decoration: none;
         padding: 0.5em;
+        cursor: pointer;
         &.active, &:hover, &.nav-dropdown-show {
           background-color: $_dropdownBGColor;
         }
