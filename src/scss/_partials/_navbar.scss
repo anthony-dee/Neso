@@ -14,6 +14,9 @@ nav.neso-nav {
   background-color: $_navBlue;
   /*transition for nav open/close animation on mobiles*/
   transition: all 400ms;
+  * {
+    box-sizing: border-box;
+  }
   .nav-container {
     width: min(100%, 800px);
     margin: 0 auto;
@@ -60,7 +63,6 @@ nav.neso-nav {
       }
       .nav-dropdown {
         height: 0;
-
         background-color: $_dropdownBGColor;
         transition: opacity 200ms;
         display: none;
@@ -86,9 +88,9 @@ nav.neso-nav {
     .nav-head > .nav-menu-toggle {
       display: block;
       border: 0;
-      padding: 1em;
       cursor: pointer;
       background-color: transparent;
+      padding: 0.5em;
       &:first-child {
         margin-left: auto;
       }
@@ -116,6 +118,8 @@ nav.neso-nav {
     & > .nav-list-item.nav-head {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      padding: 0.5em;
     }
   }
 }
