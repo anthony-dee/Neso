@@ -9,7 +9,7 @@
     </style>
 </head>
 <body>
-<nav class="neso-nav">
+<nav class="neso-nav" aria-label="Site navigation menu">
     <div class="nav-container">
         <ul class="nav-list">
             <li class="nav-list-item nav-head">
@@ -31,10 +31,10 @@
                         </a>
                     </li>
                     <li class="nav-list-item nav-list-dropdown">
-                        <button type="button" class="nav-list-item-anchor nav-dropdown-toggle">
+                        <button type="button" class="nav-list-item-anchor nav-dropdown-toggle" aria-controls="portfolio-dropdown" aria-expanded="false">
                             Portfolio
                         </button>
-                        <div class="nav-dropdown">
+                        <div id="portfolio-dropdown" class="nav-dropdown">
                             <a href="/portfolio/cool-borders">Cool Borders</a>
                             <a href="/portfolio/github-project-board-mockup">GitHub Project Board Mockup</a>
                             <a href="/portfolio/rocketry-timeline">Rocketry Timeline</a>
@@ -44,15 +44,15 @@
                         </div>
                     </li>
                     <li class="nav-list-item">
-                        <a class="nav-list-item-anchor " href="/blog">
+                        <a class="nav-list-item-anchor" href="/blog">
                             Blog
                         </a>
                     </li>
                     <li class="nav-list-item nav-list-dropdown">
-                        <button type="button" class="nav-list-item-anchor nav-beermat-logo nav-dropdown-toggle">
+                        <button type="button" class="nav-list-item-anchor nav-beermat-logo nav-dropdown-toggle" aria-controls="beermat-dropdown" aria-expanded="false">
                             Beer.Mat
                         </button>
-                        <div class="nav-dropdown">
+                        <div id="beermat-dropdown" class="nav-dropdown">
                             <a href="/beerdotmat">Beer.Mat</a>
                             <a href="/beerdotmat/history">History</a>
                             <a href="/beerdotmat/promotional">Promotional</a>
