@@ -19,6 +19,8 @@ export default class NavBar {
       this.isMenuOpen = false;
 
       this.registerListeners();
+
+      this.currentMenuButton = false;
   }
 
   registerListeners() {
@@ -27,10 +29,24 @@ export default class NavBar {
         this.toggleBtnClick(event);
       }
 
-      /*if (event.target.closest('.nav-dropdown-toggle')) {
-        this.openOrCloseNavDropdown(event);
-      }*/
+      if (event.target.closest('.nav-dropdown-toggle')) {
+        //this.openOrCloseNavDropdown(event);
+        const button = event.target;
+        const dropdown = document.getElementById(event.target.getAttribute('aria-controls'));
+        console.log(dropdown);
+        if (!this.currentMenuButton) {
+          button.setAttribute('aria-expanded', true);
+          dropdown.setAttribute('aria-hidden', false)
+          this.currentMenuButton = button;
+        } else {
+          button.setAttribute('aria-expanded', false);
+          dropdown.setAttribute('aria-hidden', true)
+          this.currentMenuButton = false;
+        }
+      }
     }, false);
+
+    /**/
 
     this.navBar.closest('body').addEventListener('click', (event) => {
       if (!event.target.closest('.nav-dropdown-toggle')) {
