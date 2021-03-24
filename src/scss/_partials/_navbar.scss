@@ -34,16 +34,17 @@ nav.neso-nav {
     text-align: center;
     .nav-list-item {
       width: 100%;
-      &.nav-list-dropdown:focus-within {
-        & > .nav-dropdown-toggle {
+      &.nav-list-dropdown {
+        & > .nav-dropdown-toggle[aria-expanded="true"] {
           background-color: $_dropdownBGColor;
+          & ~ .nav-dropdown {
+            //height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
         }
-        & > .nav-dropdown {
-          //height: auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
+
       }
       .nav-list-item-anchor {
         display: block;
@@ -81,7 +82,7 @@ nav.neso-nav {
         }
       }
       .nav-dropdown {
-        visibility: hidden;
+        //visibility: hidden;
         //height: 0;
         background-color: $_dropdownBGColor;
         transition: opacity 200ms;
