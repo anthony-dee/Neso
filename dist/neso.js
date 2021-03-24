@@ -139,8 +139,8 @@ class NavBar {
     this.isClosing = false;
     this.isExpanding = false;
     this.isMenuOpen = false;
-    this.registerListeners();
     this.currentMenuButton = false;
+    this.registerListeners();
   }
 
   registerListeners() {
@@ -150,24 +150,18 @@ class NavBar {
       }
 
       if (event.target.closest('.nav-dropdown-toggle')) {
-        //this.openOrCloseNavDropdown(event);
-        const button = event.target;
-        const dropdown = document.getElementById(event.target.getAttribute('aria-controls'));
-        console.log(dropdown);
+        const button = event.target; // close an open dropdown if there is one
 
-        if (!this.currentMenuButton) {
-          button.setAttribute('aria-expanded', true);
-          dropdown.setAttribute('aria-hidden', false);
-          this.currentMenuButton = button;
-        } else {
-          button.setAttribute('aria-expanded', false);
-          dropdown.setAttribute('aria-hidden', true);
-          this.currentMenuButton = false;
+        if (this.currentMenuButton && this.currentMenuButton !== button) {
+          this.toggleDropdown(this.currentMenuButton);
         }
+
+        this.toggleDropdown(button);
       }
     }, false);
-    /**/
-
+    document.addEventListener('click', e => {
+      this.closeOpenMenu(e);
+    });
     this.navBar.closest('body').addEventListener('click', event => {
       if (!event.target.closest('.nav-dropdown-toggle')) {
         this.navBar.querySelectorAll('.dropdown-show').forEach((shownDropdown, i) => {
@@ -175,6 +169,28 @@ class NavBar {
         });
       }
     });
+  }
+
+  closeOpenMenu(e) {
+    if (this.currentMenuButton && !e.target.closest('.nav-list-dropdown')) {
+      this.toggleDropdown(this.currentMenuButton);
+    }
+  }
+
+  toggleDropdown(button) {
+    console.log(button);
+    const dropdown = document.getElementById(button.getAttribute('aria-controls'));
+
+    if (!this.currentMenuButton) {
+      button.setAttribute('aria-expanded', true);
+      dropdown.setAttribute('aria-hidden', false);
+      this.currentMenuButton = button;
+    } else {
+      button.setAttribute('aria-expanded', false);
+      dropdown.setAttribute('aria-hidden', true);
+      button.blur();
+      this.currentMenuButton = false;
+    }
   }
 
   openOrCloseNavMenu() {
