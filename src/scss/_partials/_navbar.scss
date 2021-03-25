@@ -1,8 +1,9 @@
 @use "sass:color";
 
-$_navBlue: darken(#bfffff, 5%);
-$_dropdownBGColor: lighten($_navBlue, 10%);
+$_navBaseColor: darken(#bfffff, 5%);
+$_dropdownBGColor: lighten($_navBaseColor, 10%);
 $_hoverColor: lighten($_dropdownBGColor, 5%);
+$_textColor: #000000;
 
 nav.neso-nav {
   position: sticky;
@@ -10,8 +11,8 @@ nav.neso-nav {
   z-index: 10;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: black;
-  background-color: $_navBlue;
+  color: $_textColor;
+  background-color: $_navBaseColor;
   /*transition for nav open/close animation on mobiles*/
   transition: all 400ms;
   * {
@@ -48,8 +49,7 @@ nav.neso-nav {
       }
       .nav-list-item-anchor {
         display: block;
-
-        color: black;
+        color: $_textColor;
         text-decoration: none;
         padding: 0.5em;
         cursor: pointer;
@@ -67,7 +67,7 @@ nav.neso-nav {
       .nav-dropdown-toggle {
         display: block;
         border: none;
-        background-color: $_navBlue;
+        background-color: $_navBaseColor;
         font-size: 1em;
         &::after {
           content: "";
@@ -94,7 +94,7 @@ nav.neso-nav {
       .nav-dropdown a {
         box-sizing: border-box;
         padding: 0.5em 0;
-        color: black;
+        color: $_textColor;
         text-decoration: none;
         white-space: nowrap;
         width: 100%;
