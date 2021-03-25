@@ -6,6 +6,8 @@ export default class NavBar {
   constructor(navBar) {
       this.navBar = navBar;
 
+      this.navBar.classList.remove('no-js');
+
       this.menu = this.navBar.querySelector('.nav-main');
 
       this.animation = null;

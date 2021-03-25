@@ -5,6 +5,27 @@ $_dropdownBGColor: lighten($_navBaseColor, 10%);
 $_hoverColor: lighten($_dropdownBGColor, 5%);
 $_textColor: #000000;
 
+@mixin navDropdownShow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav.neso-nav.no-js {
+  .nav-list-dropdown:hover {
+    & > .nav-dropdown-toggle {
+      background-color: $_dropdownBGColor;
+    }
+    & > .nav-dropdown {
+      @include navDropdownShow;
+    }
+  }
+  .nav-list-dropdown:focus-within > .nav-dropdown {
+    @include navDropdownShow;
+  }
+}
+
+
 nav.neso-nav {
   position: sticky;
   top: 0;
@@ -39,10 +60,7 @@ nav.neso-nav {
         & > .nav-dropdown-toggle[aria-expanded="true"] {
           background-color: $_dropdownBGColor;
           & ~ .nav-dropdown {
-            //height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            @include navDropdownShow;
           }
         }
       }
@@ -188,6 +206,21 @@ nav.neso-nav.neso-nav-dark {
   $_dropdownBGColor: lighten($_navBaseColor, 10%);
   $_hoverColor: lighten($_dropdownBGColor, 5%);
   $_textColor: #FFFFFF;
+
+  &.no-js {
+    .nav-list-dropdown:hover, .nav-list-dropdown:focus-within {
+      & > .nav-dropdown-toggle {
+        background-color: $_dropdownBGColor;
+      }
+    }
+
+    .nav-list-dropdown:hover > .nav-dropdown {
+        @include navDropdownShow;
+    }
+    .nav-list-dropdown:focus-within > .nav-dropdown {
+      @include navDropdownShow;
+    }
+  }
 
   background-color: $_navBaseColor;
   color: $_textColor;
