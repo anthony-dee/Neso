@@ -45,7 +45,6 @@ nav.neso-nav {
             align-items: center;
           }
         }
-
       }
       .nav-list-item-anchor {
         display: block;
@@ -56,7 +55,7 @@ nav.neso-nav {
         &:not(.nav-brand) {
           width: 100%;
         }
-        &.active, &:hover, &.nav-dropdown-show {
+        &.active, &:hover {
           background-color: $_dropdownBGColor;
         }
       }
@@ -82,8 +81,6 @@ nav.neso-nav {
         }
       }
       .nav-dropdown {
-        //visibility: hidden;
-        //height: 0;
         background-color: $_dropdownBGColor;
         transition: opacity 200ms;
         display: none;
@@ -185,3 +182,51 @@ nav.neso-nav {
     }
   }
 }
+
+nav.neso-nav.neso-nav-dark {
+  $_navBaseColor: #1b1b1b;
+  $_dropdownBGColor: lighten($_navBaseColor, 10%);
+  $_hoverColor: lighten($_dropdownBGColor, 5%);
+  $_textColor: #FFFFFF;
+
+  background-color: $_navBaseColor;
+  color: $_textColor;
+  .nav-head > .nav-menu-toggle {
+    & > span {
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23FFF' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    &:hover {
+      background-color: $_dropdownBGColor;
+    }
+  }
+
+  .nav-list-item {
+    &.nav-list-dropdown {
+      & > .nav-dropdown-toggle[aria-expanded="true"] {
+        background-color: $_dropdownBGColor;
+      }
+    }
+    .nav-list-item-anchor {
+      color: $_textColor;
+      &.active, &:hover {
+        background-color: $_dropdownBGColor;
+      }
+    }
+    .nav-dropdown-toggle {
+      background-color: $_navBaseColor;
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='2.6458mm' height='2.3207mm' version='1.1' viewBox='0 0 2.6458 2.3207' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='matrix(.66666 0 0 .66666 -27.141 -84.563)'%3E%3Cpath d='m40.876 127.01h3.6398l-1.8199 3.1521z' fill='%23FFFFFF' stroke='%23FFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='.32901' style='paint-order:normal'/%3E%3C/g%3E%3C/svg%3E");
+      }
+    }
+    .nav-dropdown {
+      background-color: $_dropdownBGColor;
+    }
+    .nav-dropdown a {
+      color: $_textColor;
+      &:hover {
+        background-color: $_hoverColor;
+      }
+    }
+  }
+}
+
