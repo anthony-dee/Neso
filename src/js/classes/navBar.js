@@ -24,7 +24,7 @@ export default class NavBar {
   registerListeners() {
     this.navBar.addEventListener('click', (event) => {
       if (event.target.closest('.nav-menu-toggle')) {
-        this.toggleBtnClick(event);
+        //this.toggleBtnClick(event);
       }
 
       if (event.target.closest('.nav-dropdown-toggle')) {
