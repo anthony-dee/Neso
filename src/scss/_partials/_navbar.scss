@@ -12,6 +12,13 @@ $_textColor: #000000;
 }
 
 nav.neso-nav.no-js {
+  .nav-list .nav-head > .nav-menu-toggle {
+    display: none;
+  }
+  .nav-list .nav-main {
+    height: auto;
+    opacity: 1;
+  }
   .nav-list-dropdown:hover {
     & > .nav-dropdown-toggle {
       background-color: $_dropdownBGColor;
@@ -129,16 +136,23 @@ nav.neso-nav {
       cursor: pointer;
       background-color: transparent;
       padding: 0.5em;
+      height: 32px;
+      width: 32px;
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: content-box;
       &:first-child {
         margin-left: auto;
       }
       & > span {
-        display: block;
-        height: 32px;
-        width: 32px;
-        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center;
+        position: absolute;
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
       }
       &:hover {
         background-color: $_dropdownBGColor;
@@ -230,9 +244,7 @@ nav.neso-nav.neso-nav-dark {
   background-color: $_navBaseColor;
   color: $_textColor;
   .nav-head > .nav-menu-toggle {
-    & > span {
-      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23FFF' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
-    }
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23FFF' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
     &:hover {
       background-color: $_dropdownBGColor;
     }
