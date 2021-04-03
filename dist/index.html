@@ -10,16 +10,16 @@
 </head>
 <body>
 <div style="margin-bottom: 200px;">
-    <nav class="neso-nav neso-nav-dark no-js" aria-label="Site navigation menu" role=navigation>
+    <nav id="neso-nav-dark" class="neso-nav neso-nav-dark no-js" aria-label="Site navigation menu" role=navigation>
         <div class="nav-container">
             <ul class="nav-list">
                 <li class="nav-list-item nav-head">
                     <a class="nav-list-item-anchor nav-brand" href="#"><strong>HYEM</strong></a>
-                    <button class="nav-menu-toggle" aria-expanded="false">
+                    <button class="nav-menu-toggle" aria-expanded="false" aria-controls="neso-nav-dark-menu">
                         <span>Menu</span>
                     </button>
                 </li>
-                <li class="nav-list-item nav-main">
+                <li id="neso-nav-dark-menu" class="nav-list-item nav-main">
                     <ul class="nav-list nav-main-menu">
                         <li class="nav-list-item">
                             <a class="nav-list-item-anchor" href="#">
@@ -114,11 +114,11 @@
             <ul class="nav-list">
                 <li class="nav-list-item nav-head">
                     <a class="nav-list-item-anchor nav-brand" href="#"><strong>HYEM</strong></a>
-                    <button class="nav-menu-toggle" aria-expanded="false">
+                    <button class="nav-menu-toggle" aria-expanded="false" aria-controls="neso-nav-menu">
                         <span>Menu</span>
                     </button>
                 </li>
-                <li class="nav-list-item nav-main">
+                <li id="neso-nav-menu" class="nav-list-item nav-main">
                     <ul class="nav-list nav-main-menu">
                         <li class="nav-list-item">
                             <a class="nav-list-item-anchor" href="#">
@@ -207,7 +207,7 @@
     </nav>
 </div>
 
-<!--<script src="neso.js"></script>
+<script src="neso.js"></script>
 <script>
     const navs = document.querySelectorAll('nav');
 
@@ -216,6 +216,6 @@
     });
 
     //const nav = new Neso.NavBar(document.querySelector('nav'));
-</script>-->
+</script>
 </body>
 </html>
