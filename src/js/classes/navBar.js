@@ -10,6 +10,8 @@ export default class NavBar {
 
       this.menu = this.navBar.querySelector('.nav-main');
 
+      this.menu.setAttribute('style', `--nav-height: ${this.getMenuHeight()}`)
+
       this.animation = null;
 
       this.isClosing = false;
@@ -145,5 +147,9 @@ export default class NavBar {
     if (this.isNavMenuOpen) {
        this.menu.style.height = 'auto';
     }
+  }
+
+  getMenuHeight() {
+    return `${this.menu.querySelector('.nav-list').offsetHeight}px`;
   }
 }

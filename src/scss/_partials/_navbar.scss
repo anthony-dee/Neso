@@ -159,15 +159,17 @@ nav.neso-nav {
       }
     }
     .nav-main {
+      transition: all 400ms ease;
       &[aria-hidden="true"] {
-        /*height: 0;
-        opacity: 0;*/
+        height: 0;
         visibility: hidden;
         overflow: hidden;
       }
       &[aria-hidden="false"] {
-        /*height: auto;
-        opacity: 1;*/
+        height: var(--nav-height);
+        @media(prefers-reduced-motion) {
+          height: auto;
+        }
         visibility: visible;
       }
     }
