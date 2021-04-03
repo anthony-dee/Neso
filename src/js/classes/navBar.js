@@ -10,7 +10,9 @@ export default class NavBar {
 
       this.menu = this.navBar.querySelector('.nav-main');
 
-      this.menu.setAttribute('style', `--nav-height: ${this.getMenuHeight()}`)
+      this.setMenuHeight();
+
+      this.menu.setAttribute('style', `--nav-height: ${this.getMenuHeight()}px`)
 
       this.animation = null;
 
@@ -21,6 +23,8 @@ export default class NavBar {
       this.currentMenuButton = false;
 
       this.registerListeners();
+
+      this.start = null;
   }
 
   registerListeners() {
@@ -151,6 +155,10 @@ export default class NavBar {
   }
 
   getMenuHeight() {
-    return `${this.menu.querySelector('.nav-list').offsetHeight}px`;
+    return this.menuHeight;
+  }
+
+  setMenuHeight() {
+    this.menuHeight = this.menu.querySelector('.nav-list').offsetHeight;
   }
 }

@@ -135,12 +135,15 @@ class NavBar {
     this.navBar = navBar;
     this.navBar.classList.remove('no-js');
     this.menu = this.navBar.querySelector('.nav-main');
-    this.menu.setAttribute('style', `--nav-height: ${this.getMenuHeight()}`);
+    this.menuHeight = this.setMenuHeight();
+    this.menu.setAttribute('style', `--nav-height: ${this.getMenuHeight()}px`);
     this.animation = null;
     this.isClosing = false;
     this.isExpanding = false;
     this.currentMenuButton = false;
     this.registerListeners();
+    console.log(this.menu.offsetHeight);
+    this.start = null;
   }
 
   registerListeners() {
@@ -275,7 +278,11 @@ class NavBar {
   }
 
   getMenuHeight() {
-    return `${this.menu.querySelector('.nav-list').offsetHeight}px`;
+    return this.menuHeight;
+  }
+
+  setMenuHeight() {
+    this.menuHeight = this.menu.querySelector('.nav-list').offsetHeight;
   }
 
 }
