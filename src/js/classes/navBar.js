@@ -26,6 +26,7 @@ export default class NavBar {
   registerListeners() {
     this.navBar.addEventListener('click', (event) => {
       if (event.target.closest('.nav-menu-toggle')) {
+        console.log('hello')
         const menuToggle = event.target.closest('.nav-menu-toggle');
         if (menuToggle.getAttribute('aria-expanded') === 'false') {
           menuToggle.setAttribute('aria-expanded', 'true');
