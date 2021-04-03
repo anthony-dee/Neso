@@ -24,7 +24,14 @@ export default class NavBar {
   registerListeners() {
     this.navBar.addEventListener('click', (event) => {
       if (event.target.closest('.nav-menu-toggle')) {
-        //this.toggleBtnClick(event);
+        const menuToggle = event.target.closest('.nav-menu-toggle');
+        if (menuToggle.getAttribute('aria-expanded') === 'false') {
+          menuToggle.setAttribute('aria-expanded', 'true');
+          this.menu.setAttribute('aria-hidden', 'false');
+        } else {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          this.menu.setAttribute('aria-hidden', 'true');
+        }
       }
 
       if (event.target.closest('.nav-dropdown-toggle')) {

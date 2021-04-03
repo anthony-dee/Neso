@@ -159,12 +159,16 @@ nav.neso-nav {
       }
     }
     .nav-main {
-      height: 0;
-      opacity: 0;
-      overflow: hidden;
-      &.menu-open {
-        height: auto;
-        opacity: 1;
+      &[aria-hidden="true"] {
+        /*height: 0;
+        opacity: 0;*/
+        visibility: hidden;
+        overflow: hidden;
+      }
+      &[aria-hidden="false"] {
+        /*height: auto;
+        opacity: 1;*/
+        visibility: visible;
       }
     }
     & > .nav-list-item.nav-head {
