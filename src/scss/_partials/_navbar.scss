@@ -12,10 +12,10 @@ $_textColor: #000000;
 }
 
 nav.neso-nav.no-js {
-  .nav-list .nav-head > .nav-menu-toggle {
+  .nav-head > .nav-menu-toggle {
     display: none;
   }
-  .nav-list .nav-main {
+  .nav-main-menu {
     height: auto;
     opacity: 1;
   }
@@ -49,9 +49,57 @@ nav.neso-nav {
     width: min(100%, 800px);
     margin: 0 auto;
   }
-  .nav-list {
-    grid-column-start: 1;
-    grid-column-end: 12;
+  .nav-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+  }
+  .nav-head > .nav-brand {
+    color: $_textColor;
+    text-decoration: none;
+  }
+  .nav-head > .nav-menu-toggle {
+    display: block;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0.5em;
+    height: 32px;
+    width: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: content-box;
+    &:first-child {
+      margin-left: auto;
+    }
+    & > span {
+      position: absolute;
+      clip: rect(1px, 1px, 1px, 1px);
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+    }
+    &:hover {
+      background-color: $_dropdownBGColor;
+    }
+  }
+  .nav-main-menu {
+    overflow: hidden;
+    transition: all 400ms;
+    &[aria-hidden="true"] {
+      visibility: hidden;
+      height: 0;
+    }
+    &[aria-hidden="false"] {
+      visibility: visible;
+      height: var(--nav-height);
+    }
+  }
+  .nav-main-menu {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -72,13 +120,11 @@ nav.neso-nav {
       }
       .nav-list-item-anchor {
         display: block;
+        width: 100%;
         color: $_textColor;
         text-decoration: none;
         padding: 0.5em;
         cursor: pointer;
-        &:not(.nav-brand) {
-          width: 100%;
-        }
         &.active, &:hover {
           background-color: $_dropdownBGColor;
         }
@@ -129,60 +175,11 @@ nav.neso-nav {
         }
       }
     }
-    .nav-head > .nav-menu-toggle {
-      display: block;
-      border: 0;
-      cursor: pointer;
-      background-color: transparent;
-      padding: 0.5em;
-      height: 32px;
-      width: 32px;
-      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' version='1.1' viewBox='0 0 8.4667 8.4667' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(0 -288.53)' fill='none' stroke='%23000' stroke-linecap='round'%3E%3Cpath d='m1.0583 289.59h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 292.77h6.35' stroke-width='.9466'/%3E%3Cpath d='m1.0583 295.94h6.35' stroke-width='.9466'/%3E%3C/g%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      box-sizing: content-box;
-      &:first-child {
-        margin-left: auto;
-      }
-      & > span {
-        position: absolute;
-        clip: rect(1px, 1px, 1px, 1px);
-        padding: 0;
-        border: 0;
-        height: 1px;
-        width: 1px;
-        overflow: hidden;
-      }
-      &:hover {
-        background-color: $_dropdownBGColor;
-      }
-    }
-    .nav-main {
-      transition: all 400ms;
-      overflow: hidden;
-      visibility: hidden;
-      &[aria-hidden="true"] {
-        height: 0;
-      }
-      &[aria-hidden="false"] {
-        visibility: visible;
-        height: var(--nav-height);
-      }
-      &.open {
-        height: auto;
-      }
-    }
-    & > .nav-list-item.nav-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5em;
-    }
   }
 }
 
 @media(prefers-reduced-motion) {
-  nav.neso-nav .nav-list .nav-main {
+  nav.neso-nav .nav-main-menu {
     &[aria-hidden="true"] {
       height: 0;
       visibility: hidden;
@@ -196,12 +193,25 @@ nav.neso-nav {
 
 @media screen and (min-width: 768px) {
   nav.neso-nav {
-    .nav-list {
-      grid-column-start: 2;
-      grid-column-end: 14;
+    .nav-container {
+      display: flex;
+    }
+    .nav-head > .nav-menu-toggle {
+      visibility: hidden;
+    }
+    .nav-main-menu {
+      height: auto;
+      padding: 0;
+      display: flex;
+      position: static;
+      opacity: 1;
+      overflow: visible;
       flex-direction: row;
       .nav-list-item {
         width: auto;
+        &:not(:last-child) {
+          margin-right: 0.5em;
+        }
         &.nav-list-dropdown {
           position: relative;
         }
@@ -218,20 +228,6 @@ nav.neso-nav {
           width: 100%;
           text-align: left;
           padding: 0.2em 1em;
-        }
-      }
-      .nav-list-item.nav-head > .nav-menu-toggle {
-        display: none;
-      }
-      .nav-main {
-        height: auto;
-        padding: 0;
-        display: flex;
-        position: static;
-        opacity: 1;
-        overflow: visible;
-        .nav-list .nav-list-item {
-          margin-right: 1em;
         }
       }
     }
@@ -266,6 +262,10 @@ nav.neso-nav.neso-nav-dark {
     &:hover {
       background-color: $_dropdownBGColor;
     }
+  }
+
+  .nav-brand {
+    color: $_textColor;
   }
 
   .nav-list-item {
