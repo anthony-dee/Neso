@@ -80,13 +80,11 @@ export default class NavBar {
 
   closeOpenMenu(e) {
     if (this.currentMenuButton && !e.target.closest( '.nav-list-dropdown')) {
-      console.log('closing from document click');
       this.toggleDropdown(this.currentMenuButton);
     }
   }
 
   toggleDropdown(button) {
-    console.log(button)
     const dropdown = document.getElementById(button.getAttribute('aria-controls'));
     if ('true' === button.getAttribute( 'aria-expanded' )) {
       button.setAttribute('aria-expanded', false);

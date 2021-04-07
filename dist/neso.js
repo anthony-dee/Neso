@@ -12,110 +12,6 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/classes/Carousel.js":
-/*!************************************!*\
-  !*** ./src/js/classes/Carousel.js ***!
-  \************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ Carousel; }
-/* harmony export */ });
-/* harmony import */ var _scss_partials_carousel_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scss/_partials/_carousel.scss */ "./src/scss/_partials/_carousel.scss");
-
-class Carousel {
-  constructor(element) {
-    this.carousel = element;
-    this.currentItem = 0;
-    this.items = this.carousel.querySelectorAll('.carousel-item');
-    this.track = this.carousel.querySelector('.carousel-track');
-    this.indicators = this.carousel.querySelectorAll('.carousel-indicator');
-    this.registerListeners();
-  }
-
-  registerListeners() {
-    this.carousel.addEventListener('click', event => {
-      if (event.target.matches('.carousel-indicator')) {
-        this.pause();
-        this.slideTo(event.target.getAttribute('data-slide-to'));
-        this.play();
-      }
-
-      if (event.target.closest('.carousel-prev')) {
-        this.pause();
-        this.slideTo(this.getPreviousItem());
-        this.play();
-      }
-
-      if (event.target.closest('.carousel-next')) {
-        this.pause();
-        this.slideTo(this.getNextItem());
-        this.play();
-      }
-    });
-
-    window.onresize = () => {
-      this.track.scrollLeft = this.calculateTrackScrollLeft();
-    };
-  }
-
-  slideTo(itemTo) {
-    this.setCurrentItem(itemTo);
-    this.track.scrollTo({
-      behavior: "smooth",
-      top: 0,
-      left: this.calculateTrackScrollLeft()
-    });
-    this.indicators.forEach((indicator, key) => {
-      if (indicator.classList.contains('active')) {
-        indicator.classList.remove('active');
-      }
-
-      if (this.currentItem == key) {
-        indicator.classList.add('active');
-      }
-    });
-  }
-
-  play() {
-    this.interval = setInterval(() => {
-      this.slideTo(this.getNextItem());
-    }, 5000);
-  }
-
-  pause() {
-    clearInterval(this.interval);
-  }
-
-  setCurrentItem(item) {
-    this.currentItem = parseInt(item);
-  }
-
-  calculateTrackScrollLeft() {
-    return Math.floor(this.track.scrollWidth * (this.currentItem / this.items.length));
-  }
-
-  getNextItem() {
-    if (this.currentItem === this.items.length - 1) {
-      return 0;
-    } else {
-      return this.currentItem + 1;
-    }
-  }
-
-  getPreviousItem() {
-    if (this.currentItem === 0) {
-      return this.items.length - 1;
-    } else {
-      return this.currentItem - 1;
-    }
-  }
-
-}
-
-/***/ }),
-
 /***/ "./src/js/classes/NavBar.js":
 /*!**********************************!*\
   !*** ./src/js/classes/NavBar.js ***!
@@ -184,11 +80,6 @@ class NavBar {
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
-        // close an open dropdown if there is one
-
-        /*if (this.currentMenuButton && this.currentMenuButton !== button) {
-          this.toggleDropdown(this.currentMenuButton);
-        }*/
         this.menuToggle.setAttribute('aria-expanded', 'true');
         this.menu.setAttribute('aria-hidden', 'false');
       } else {
@@ -200,13 +91,11 @@ class NavBar {
 
   closeOpenMenu(e) {
     if (this.currentMenuButton && !e.target.closest('.nav-list-dropdown')) {
-      console.log('closing from document click');
       this.toggleDropdown(this.currentMenuButton);
     }
   }
 
   toggleDropdown(button) {
-    console.log(button);
     const dropdown = document.getElementById(button.getAttribute('aria-controls'));
 
     if ('true' === button.getAttribute('aria-expanded')) {
@@ -308,29 +197,6 @@ class NavBar {
   }
 
 }
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/scss/_partials/_carousel.scss":
-/*!******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/scss/_partials/_carousel.scss ***!
-  \******************************************************************************************************************************************************************/
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/cssWithMappingToString.js */ "./node_modules/css-loader/dist/runtime/cssWithMappingToString.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".carousel {\n  position: relative;\n  width: 100%;\n}\n.carousel .carousel-indicators {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: space-evenly;\n  -ms-flex-pack: space-evenly;\n  justify-content: space-evenly;\n  margin: 0.5rem 0 1.5rem;\n  padding-left: 0;\n  list-style: none;\n  z-index: 20;\n}\n.carousel .carousel-indicators .carousel-indicator {\n  height: 2rem;\n  width: 2rem;\n  border-radius: 50%;\n  background-color: white;\n  -webkit-box-shadow: 3px 5px 0 black;\n  box-shadow: 3px 5px 0 black;\n  opacity: 0.6;\n  -webkit-transition: opacity 0.2s;\n  transition: opacity 0.2s;\n  cursor: pointer;\n}\n.carousel .carousel-indicators .carousel-indicator.active, .carousel .carousel-indicators .carousel-indicator:hover {\n  opacity: 1;\n}\n.carousel .carousel-track {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  overflow: hidden;\n  background-color: #d5dbdb;\n}\n.carousel .carousel-track .carousel-item {\n  position: relative;\n  width: 100%;\n  -webkit-box-flex: 0;\n  -ms-flex: 0 0 100%;\n  flex: 0 0 100%;\n}\n.carousel .carousel-track .carousel-item .carousel-img {\n  width: 100%;\n}\n.carousel .carousel-track .carousel-item .carousel-caption {\n  text-align: center;\n  position: absolute;\n  left: 10%;\n  right: 10%;\n  bottom: 4rem;\n  color: white;\n}\n.carousel .carousel-track .carousel-item .carousel-caption h1 {\n  margin: 0;\n}\n.carousel .carousel-prev {\n  left: 0;\n}\n.carousel .carousel-prev:hover {\n  background-image: -webkit-gradient(linear, left top, right top, from(rgba(213, 219, 219, 0.6)), to(transparent));\n  background-image: linear-gradient(90deg, rgba(213, 219, 219, 0.6), transparent);\n}\n.carousel .carousel-next {\n  right: 0;\n}\n.carousel .carousel-next:hover {\n  background-image: -webkit-gradient(linear, right top, left top, from(rgba(213, 219, 219, 0.6)), to(transparent));\n  background-image: linear-gradient(270deg, rgba(213, 219, 219, 0.6), transparent);\n}\n.carousel .carousel-prev, .carousel .carousel-next {\n  z-index: 20;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  width: 10%;\n  cursor: pointer;\n  opacity: 0.6;\n}\n.carousel .carousel-prev svg, .carousel .carousel-next svg {\n  -webkit-filter: drop-shadow(3px 5px 0 black);\n  filter: drop-shadow(3px 5px 0 black);\n}\n.carousel .carousel-prev:hover, .carousel .carousel-next:hover {\n  cursor: pointer;\n  opacity: 1;\n}\n\n@media screen and (max-width: 576px) {\n  .carousel .carousel-indicators .carousel-indicator {\n    height: 1rem;\n    width: 1rem;\n  }\n  .carousel .carousel-track .carousel-item .carousel-caption {\n    bottom: 3rem;\n  }\n  .carousel .carousel-track .carousel-item .carousel-caption h1 {\n    font-size: 2rem;\n  }\n  .carousel .carousel-prev svg, .carousel .carousel-next svg {\n    height: 1.333334rem;\n  }\n}", "",{"version":3,"sources":["webpack://./src/scss/_partials/_carousel.scss"],"names":[],"mappings":"AAOA;EACE,kBAAA;EACA,WAAA;AANF;AAOE;EACE,kBAAA;EACA,SAAA;EACA,OAAA;EACA,QAAA;EACA,oBAAA;EACA,oBAAA;EACA,aAAA;EACA,8BAAA;EACI,2BAAA;EACI,6BAAA;EACR,uBAAA;EACA,eAAA;EACA,gBAAA;EACA,WAAA;AALJ;AAMI;EACE,YAxBa;EAyBb,WAzBa;EA0Bb,kBAAA;EACA,uBAAA;EACA,mCAAA;EACQ,2BAAA;EACR,YAAA;EACA,gCAAA;EACA,wBAAA;EACA,eAAA;AAJN;AAKM;EACE,UAAA;AAHR;AAOE;EACE,oBAAA;EACA,oBAAA;EACA,aAAA;EACA,yBAAA;EACI,sBAAA;EACI,mBAAA;EACR,qBAAA;EACI,iBAAA;EACJ,gBAAA;EACA,yBA9CQ;AAyCZ;AAMI;EACE,kBAAA;EACA,WAAA;EACA,mBAAA;EACI,kBAAA;EACI,cAAA;AAJd;AAKM;EACE,WAAA;AAHR;AAKM;EACE,kBAAA;EACA,kBAAA;EACA,SAAA;EACA,UAAA;EACA,YAAA;EACA,YAAA;AAHR;AAIQ;EACE,SAAA;AAFV;AAOE;EACE,OAAA;AALJ;AAMI;EACE,gHAAA;EACA,+EAAA;AAJN;AAOE;EACE,QAAA;AALJ;AAMI;EACE,gHAAA;EACA,gFAAA;AAJN;AAOE;EACE,WAAA;EACA,oBAAA;EACA,oBAAA;EACA,aAAA;EACA,wBAAA;EACI,qBAAA;EACI,uBAAA;EACR,yBAAA;EACI,sBAAA;EACI,mBAAA;EACR,kBAAA;EACA,MAAA;EACA,SAAA;EACA,UAAA;EACA,eAAA;EACA,YAAA;AALJ;AAMI;EACE,4CAAA;EACQ,oCAAA;AAJd;AAMI;EACE,eAAA;EACA,UAAA;AAJN;;AASA;EAEI;IACE,YAAA;IACA,WAAA;EAPJ;EAWM;IACE,YAAA;EATR;EAUQ;IACE,eAAA;EARV;EAaE;IACE,mBAAA;EAXJ;AACF","sourcesContent":["@use \"sass:color\";\r\n\r\n$_indicatorHeight: 2rem;\r\n$_indicatorsMarginBlockStart: 0.5rem;\r\n$_indicatorsMarginBlockEnd: 1.5rem;\r\n$_bgColour: #d5dbdb;\r\n\r\n.carousel {\r\n  position: relative;\r\n  width: 100%;\r\n  .carousel-indicators {\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: space-evenly;\r\n        -ms-flex-pack: space-evenly;\r\n            justify-content: space-evenly;\r\n    margin: $_indicatorsMarginBlockStart 0 $_indicatorsMarginBlockEnd;\r\n    padding-left: 0;\r\n    list-style: none;\r\n    z-index: 20;\r\n    .carousel-indicator {\r\n      height: $_indicatorHeight;\r\n      width: $_indicatorHeight;\r\n      border-radius: 50%;\r\n      background-color: white;\r\n      -webkit-box-shadow: 3px 5px 0 black;\r\n              box-shadow: 3px 5px 0 black;\r\n      opacity: 0.6;\r\n      -webkit-transition: opacity 0.2s;\r\n      transition: opacity 0.2s;\r\n      cursor: pointer;\r\n      &.active, &:hover {\r\n        opacity: 1;\r\n      }\r\n    }\r\n  }\r\n  .carousel-track {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -ms-flex-wrap: nowrap;\r\n        flex-wrap: nowrap;\r\n    overflow: hidden;\r\n    background-color: $_bgColour;\r\n    .carousel-item {\r\n      position: relative;\r\n      width: 100%;\r\n      -webkit-box-flex: 0;\r\n          -ms-flex: 0 0 100%;\r\n              flex: 0 0 100%;\r\n      .carousel-img {\r\n        width: 100%;\r\n      }\r\n      .carousel-caption {\r\n        text-align: center;\r\n        position: absolute;\r\n        left: 10%;\r\n        right: 10%;\r\n        bottom: $_indicatorsMarginBlockStart + $_indicatorsMarginBlockEnd + $_indicatorHeight;\r\n        color: white;\r\n        h1 {\r\n          margin: 0;\r\n        }\r\n      }\r\n    }\r\n  }\r\n  .carousel-prev {\r\n    left: 0;\r\n    &:hover {\r\n      background-image: -webkit-gradient(linear, left top, right top, from(color.adjust($_bgColour, $alpha: -0.4)), to(transparent));\r\n      background-image: linear-gradient(90deg, color.adjust($_bgColour, $alpha: -0.4), transparent);\r\n    }\r\n  }\r\n  .carousel-next {\r\n    right: 0;\r\n    &:hover {\r\n      background-image: -webkit-gradient(linear, right top, left top, from(color.adjust($_bgColour, $alpha: -0.4)), to(transparent));\r\n      background-image: linear-gradient(270deg, color.adjust($_bgColour, $alpha: -0.4), transparent);\r\n    }\r\n  }\r\n  .carousel-prev, .carousel-next {\r\n    z-index: 20;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n    -webkit-box-align:  center;\r\n        -ms-flex-align:  center;\r\n            align-items:  center;\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    width: 10%;\r\n    cursor: pointer;\r\n    opacity: 0.6;\r\n    svg {\r\n      -webkit-filter: drop-shadow(3px 5px 0 black);\r\n              filter: drop-shadow(3px 5px 0 black);\r\n    }\r\n    &:hover {\r\n      cursor: pointer;\r\n      opacity: 1;\r\n    }\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 576px) {\r\n  .carousel {\r\n    .carousel-indicators .carousel-indicator {\r\n      height: $_indicatorHeight / 2;\r\n      width: $_indicatorHeight / 2;\r\n    }\r\n    .carousel-track {\r\n      .carousel-item {\r\n        .carousel-caption {\r\n          bottom: $_indicatorsMarginBlockStart + $_indicatorsMarginBlockEnd + ($_indicatorHeight / 2);\r\n          h1 {\r\n            font-size: 2rem;\r\n          }\r\n        }\r\n      }\r\n    }\r\n    .carousel-prev svg, .carousel-next svg {\r\n      height: $_indicatorHeight * 0.666667;\r\n    }\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
-
 
 /***/ }),
 
@@ -493,32 +359,6 @@ module.exports = function cssWithMappingToString(item) {
 
   return [content].join("\n");
 };
-
-/***/ }),
-
-/***/ "./src/scss/_partials/_carousel.scss":
-/*!*******************************************!*\
-  !*** ./src/scss/_partials/_carousel.scss ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_carousel_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!../../../node_modules/postcss-loader/dist/cjs.js!./_carousel.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/scss/_partials/_carousel.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_carousel_scss__WEBPACK_IMPORTED_MODULE_1__.default, options);
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = (_node_modules_css_loader_dist_cjs_js_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_carousel_scss__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 
@@ -928,12 +768,9 @@ var __webpack_exports__ = {};
   \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NavBar": function() { return /* reexport safe */ _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__.default; },
-/* harmony export */   "Carousel": function() { return /* reexport safe */ _classes_Carousel_js__WEBPACK_IMPORTED_MODULE_1__.default; }
+/* harmony export */   "NavBar": function() { return /* reexport safe */ _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__.default; }
 /* harmony export */ });
 /* harmony import */ var _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/NavBar.js */ "./src/js/classes/NavBar.js");
-/* harmony import */ var _classes_Carousel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./classes/Carousel.js */ "./src/js/classes/Carousel.js");
-
 
 
 }();
