@@ -12,9 +12,9 @@ return /******/ (function() { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/classes/NavBar.js":
+/***/ "./src/js/classes/navBar.js":
 /*!**********************************!*\
-  !*** ./src/js/classes/NavBar.js ***!
+  !*** ./src/js/classes/navBar.js ***!
   \**********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
@@ -768,9 +768,9 @@ var __webpack_exports__ = {};
   \****************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "NavBar": function() { return /* reexport safe */ _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__.default; }
+/* harmony export */   "NavBar": function() { return /* reexport safe */ _classes_navBar_js__WEBPACK_IMPORTED_MODULE_0__.default; }
 /* harmony export */ });
-/* harmony import */ var _classes_NavBar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/NavBar.js */ "./src/js/classes/NavBar.js");
+/* harmony import */ var _classes_navBar_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classes/navBar.js */ "./src/js/classes/navBar.js");
 
 
 }();
