@@ -31,6 +31,8 @@ export default class NavBar {
       this.currentMenuButton = false;
 
       this.registerListeners();
+
+      this.calculateOpenMenuHeight();
   }
 
   registerListeners() {
@@ -46,9 +48,9 @@ export default class NavBar {
           this.menu.setAttribute('aria-hidden', 'true');
         }
 
-        /*if (!prefersReducedMotion.matches) {
-          this.toggleBtnClick(event);
-        }*/
+        if (!prefersReducedMotion.matches) {
+
+        }
       }
 
       if (event.target.closest('.nav-dropdown-toggle')) {
@@ -177,6 +179,16 @@ export default class NavBar {
   }
 
   setMenuHeight() {
-    this.menuHeight = this.menu.offsetHeight;
+    this.menuHeight = this.calculateOpenMenuHeight();
+  }
+
+  calculateOpenMenuHeight() {
+    let height = 0;
+
+    for (let i = 0; i < this.menu.children.length; i++) {
+      height += this.menu.children[i].offsetHeight;
+    }
+
+    return height;
   }
 }

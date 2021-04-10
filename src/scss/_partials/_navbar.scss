@@ -200,13 +200,15 @@ nav.neso-nav {
       visibility: hidden;
     }
     .nav-main-menu {
-      height: auto;
       padding: 0;
       display: flex;
       position: static;
       opacity: 1;
       overflow: visible;
       flex-direction: row;
+      &[aria-hidden="false"] {
+        height: auto;
+      }
       .nav-list-item {
         width: auto;
         &:not(:last-child) {
