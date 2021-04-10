@@ -178,7 +178,7 @@ nav.neso-nav {
   }
 }
 
-@media(prefers-reduced-motion) {
+/*@media(prefers-reduced-motion) {
   nav.neso-nav .nav-main-menu {
     &[aria-hidden="true"] {
       height: 0;
@@ -189,7 +189,7 @@ nav.neso-nav {
       visibility: visible;
     }
   }
-}
+}*/
 
 @media screen and (min-width: 768px) {
   nav.neso-nav {

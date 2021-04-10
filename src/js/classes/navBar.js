@@ -14,9 +14,12 @@ export default class NavBar {
       }
 
       this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      this.transitionTime = this.prefersReducedMotion ? 10 : 400;
       this.setMenuHeight();
-      this.baseMenuStyle = `--nav-height: ${this.getMenuHeight()}px; `;
-      this.menu.setAttribute('style', this.baseMenuStyle)
+
+      document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
+
+
       this.animation = null;
       this.isNavMenuOpen = false;
       this.isClosing = false;
@@ -34,16 +37,12 @@ export default class NavBar {
         if (menuWasClosed) {
           this.menuToggle.setAttribute('aria-expanded', 'true');
           this.menu.setAttribute('aria-hidden', 'false');
-          this.isNavMenuOpen = true;
         } else {
           this.menuToggle.setAttribute('aria-expanded', 'false');
           this.menu.setAttribute('aria-hidden', 'true');
-          this.isNavMenuOpen = false;
         }
 
-        if (!this.prefersReducedMotion) {
-          this.toggleMainMenu(event);
-        }
+        this.toggleMainMenu(event);
       }
 
       if (event.target.closest('.nav-dropdown-toggle')) {
@@ -67,18 +66,21 @@ export default class NavBar {
         this.menuToggle.setAttribute('aria-expanded', 'true');
         this.menu.setAttribute('aria-hidden', 'false');
         this.isNavMenuOpen = false;
-        if (!this.isNavMenuOpen && !this.prefersReducedMotion) {
-          this.menu.style.height = 'initial';
-        }
+      }
+
+      /*console.log(this.isNavMenuOpen)
+      if (window.innerWidth >= 768) {
+        this.menuToggle.setAttribute('aria-expanded', 'true');
+        this.menu.setAttribute('aria-hidden', 'false');
+        this.isNavMenuOpen = false;
       } else {
-        if (!this.isNavMenuOpen) {
+        /!*if (!this.isNavMenuOpen) {
           this.menuToggle.setAttribute('aria-expanded', 'false');
           this.menu.setAttribute('aria-hidden', 'true');
-          if (!this.prefersReducedMotion) {
-            this.menu.style.height = '0 ';
-          }
-        }
-      }
+          //this.menu.style.height = '0';
+          this.isNavMenuOpen = false;
+        }*!/
+      }*/
     });
   }
 
@@ -124,7 +126,7 @@ export default class NavBar {
     this.animation = this.menu.animate({
       height: [startHeight, endHeight]
     }, {
-      duration: 400, easing: 'ease-out'
+      duration: this.transitionTime, easing: 'ease-out'
     });
 
     this.menu.style.height = endHeight;
@@ -151,7 +153,7 @@ export default class NavBar {
     this.animation = this.menu.animate({
       height: [startHeight, endHeight]
     }, {
-      duration: 400, easing: 'ease-out'
+      duration: this.transitionTime, easing: 'ease-out'
     });
 
     this.menu.style.height = endHeight;
@@ -161,7 +163,7 @@ export default class NavBar {
 
   // Callback when the shrink or expand animations are done
   onAnimationFinish(isNavMenuOpen) {
-    //this.isNavMenuOpen = isNavMenuOpen;
+    this.isNavMenuOpen = isNavMenuOpen;
     this.menu.classList.toggle('menu-open', this.isNavMenuOpen);
     this.animation = null;
     this.isClosing = false;
