@@ -88,16 +88,16 @@ nav.neso-nav {
     }
   }
   .nav-main-menu {
+    transition: height 400ms;
     overflow: hidden;
-    transition: all 400ms;
     &[aria-hidden="true"] {
       visibility: hidden;
       height: 0;
     }
-    &[aria-hidden="false"] {
+    /*&[aria-hidden="false"] {
       visibility: visible;
       height: var(--nav-height);
-    }
+    }*/
   }
   .nav-main-menu {
     list-style: none;
