@@ -19,7 +19,7 @@ export default class NavBar {
 
       document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
 
-
+      this.easing = 'ease';
       this.animation = null;
       this.isNavMenuOpen = false;
       this.isClosing = false;
@@ -65,22 +65,15 @@ export default class NavBar {
       if (window.innerWidth >= 768) {
         this.menuToggle.setAttribute('aria-expanded', 'true');
         this.menu.setAttribute('aria-hidden', 'false');
-        this.isNavMenuOpen = false;
-      }
-
-      /*console.log(this.isNavMenuOpen)
-      if (window.innerWidth >= 768) {
-        this.menuToggle.setAttribute('aria-expanded', 'true');
-        this.menu.setAttribute('aria-hidden', 'false');
-        this.isNavMenuOpen = false;
+        this.menu.removeAttribute('style');
       } else {
-        /!*if (!this.isNavMenuOpen) {
+        if (!this.isNavMenuOpen) {
           this.menuToggle.setAttribute('aria-expanded', 'false');
           this.menu.setAttribute('aria-hidden', 'true');
-          //this.menu.style.height = '0';
-          this.isNavMenuOpen = false;
-        }*!/
-      }*/
+        } else {
+          this.menu.style.height = 'auto';
+        }
+      }
     });
   }
 
@@ -93,12 +86,12 @@ export default class NavBar {
   toggleDropdown(button) {
     const dropdown = document.getElementById(button.getAttribute('aria-controls'));
     if ('true' === button.getAttribute( 'aria-expanded' )) {
-      button.setAttribute('aria-expanded', false);
-      dropdown.setAttribute('aria-hidden', true)
+      button.setAttribute('aria-expanded', 'false');
+      dropdown.setAttribute('aria-hidden', 'true')
       this.currentMenuButton = false;
     } else {
-      button.setAttribute('aria-expanded', true);
-      dropdown.setAttribute('aria-hidden', false)
+      button.setAttribute('aria-expanded', 'true');
+      dropdown.setAttribute('aria-hidden', 'false')
       this.currentMenuButton = button;
     }
   }
@@ -126,7 +119,7 @@ export default class NavBar {
     this.animation = this.menu.animate({
       height: [startHeight, endHeight]
     }, {
-      duration: this.transitionTime, easing: 'ease-out'
+      duration: this.transitionTime, easing: this.easing
     });
 
     this.menu.style.height = endHeight;
@@ -153,7 +146,7 @@ export default class NavBar {
     this.animation = this.menu.animate({
       height: [startHeight, endHeight]
     }, {
-      duration: this.transitionTime, easing: 'ease-out'
+      duration: this.transitionTime, easing: this.easing
     });
 
     this.menu.style.height = endHeight;
