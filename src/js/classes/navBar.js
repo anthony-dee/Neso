@@ -34,9 +34,11 @@ export default class NavBar {
         if (menuWasClosed) {
           this.menuToggle.setAttribute('aria-expanded', 'true');
           this.menu.setAttribute('aria-hidden', 'false');
+          this.isNavMenuOpen = true;
         } else {
           this.menuToggle.setAttribute('aria-expanded', 'false');
           this.menu.setAttribute('aria-hidden', 'true');
+          this.isNavMenuOpen = false;
         }
 
         if (!this.prefersReducedMotion) {
@@ -64,14 +66,17 @@ export default class NavBar {
       if (window.innerWidth >= 768) {
         this.menuToggle.setAttribute('aria-expanded', 'true');
         this.menu.setAttribute('aria-hidden', 'false');
-        if (!this.isNavMenuOpen) {
+        this.isNavMenuOpen = false;
+        if (!this.isNavMenuOpen && !this.prefersReducedMotion) {
           this.menu.style.height = 'initial';
         }
       } else {
         if (!this.isNavMenuOpen) {
           this.menuToggle.setAttribute('aria-expanded', 'false');
           this.menu.setAttribute('aria-hidden', 'true');
-          this.menu.style.height = '0 ';
+          if (!this.prefersReducedMotion) {
+            this.menu.style.height = '0 ';
+          }
         }
       }
     });
@@ -156,8 +161,8 @@ export default class NavBar {
 
   // Callback when the shrink or expand animations are done
   onAnimationFinish(isNavMenuOpen) {
-    this.isNavMenuOpen = isNavMenuOpen;
-    this.menu.classList.toggle('menu-open', isNavMenuOpen);
+    //this.isNavMenuOpen = isNavMenuOpen;
+    this.menu.classList.toggle('menu-open', this.isNavMenuOpen);
     this.animation = null;
     this.isClosing = false;
     this.isExpanding =  false;
