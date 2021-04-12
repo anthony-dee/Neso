@@ -17,7 +17,6 @@ nav.neso-nav.no-js {
   }
   .nav-main-menu {
     height: auto;
-    opacity: 1;
   }
   .nav-list-dropdown:hover {
     & > .nav-dropdown-toggle {
@@ -150,7 +149,6 @@ nav.neso-nav {
       }
       .nav-dropdown {
         background-color: $_dropdownBGColor;
-        transition: opacity 200ms;
         display: none;
         list-style: none;
         padding-left: 0;
@@ -201,7 +199,6 @@ nav.neso-nav {
       padding: 0;
       display: flex;
       position: static;
-      opacity: 1;
       overflow: visible;
       flex-direction: row;
       &[aria-hidden="false"] {

@@ -193,7 +193,8 @@
                             <a href="#">Poland</a>
                         </li>
                     </ul>
-                </li>
+
+
             </ul>
         </div>
     </nav>
@@ -201,6 +202,14 @@
 
 
 <script src="neso.js"></script>
+<script>
+    const navs = document.querySelectorAll('nav');
 
+    navs.forEach(function(nav) {
+        new Neso.NavBar(nav);
+    });
+
+    //const nav = new Neso.NavBar(document.querySelector('nav'));
+</script>
 </body>
 </html>
