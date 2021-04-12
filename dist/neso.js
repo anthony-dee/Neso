@@ -49,6 +49,7 @@ class NavBar {
     this.currentMenuButton = false;
     this.registerListeners();
     this.calculateOpenMenuHeight();
+    this.setAriaAttributes();
   }
 
   registerListeners() {
@@ -93,6 +94,27 @@ class NavBar {
           this.menu.style.height = 'auto';
         }
       }
+    });
+  }
+
+  setAriaAttributes() {
+    this.navBar.setAttribute('aria-label', 'Site Navigation Menu');
+
+    if (window.innerWidth >= 768) {
+      this.menuToggle.setAttribute('aria-expanded', 'true');
+      this.menu.setAttribute('aria-hidden', 'false');
+    } else {
+      this.menuToggle.setAttribute('aria-expanded', 'false');
+      this.menu.setAttribute('aria-hidden', 'true');
+    }
+
+    this.menuToggle.setAttribute('aria-controls', this.menu.getAttribute('id'));
+    this.navBar.querySelectorAll('.nav-list-dropdown').forEach(dropdown => {
+      let toggle = dropdown.querySelector('.nav-dropdown-toggle');
+      let menu = dropdown.querySelector('.nav-dropdown');
+      toggle.setAttribute('aria-controls', menu.getAttribute('id'));
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
     });
   }
 
