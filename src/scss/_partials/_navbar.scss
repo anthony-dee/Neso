@@ -40,8 +40,6 @@ nav.neso-nav {
   font-family: sans-serif;
   color: $_textColor;
   background-color: $_navBaseColor;
-  /*transition for nav open/close animation on mobiles*/
-  transition: all 400ms;
   * {
     box-sizing: border-box;
   }
@@ -297,27 +295,5 @@ nav.neso-nav.neso-nav-dark {
         background-color: $_hoverColor;
       }
     }
-  }
-}
-
-@keyframes nav-menu-open {
-  from {
-    opacity: 0;
-    height: 0;
-  }
-  to {
-    opacity: 1;
-    height: var(--nav-height);
-  }
-}
-
-@keyframes nav-menu-close {
-  from {
-    opacity: 1;
-    height: var(--nav-height);
-  }
-  to {
-    opacity: 0;
-    height: 0;
   }
 }
