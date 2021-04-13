@@ -49,8 +49,6 @@ export default class NavBar {
             if (event.target.closest('.nav-dropdown-toggle')) {
                 const button = event.target.closest('.nav-dropdown-toggle');
 
-                console.log(button)
-
                 // close an open dropdown if there is one
                 if (this.currentMenuButton && this.currentMenuButton !== button) {
                     this.toggleDropdown(this.currentMenuButton);
