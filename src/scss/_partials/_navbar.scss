@@ -132,6 +132,9 @@ nav.neso-nav {
         border: none;
         background-color: $_navBaseColor;
         font-size: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         &::after {
           content: "";
           display: inline-block;
