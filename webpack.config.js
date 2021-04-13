@@ -27,10 +27,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: "babel-loader",
             },
-            /*{
-                test: /\.(s[ac]|c)ss$/i, // This regex adds support for .scss, .sass and .css file types
-                use: [ "style-loader", "css-loader", "sass-loader", ],
-            },*/
             {
                 test: /\.(s[ac]|c)ss$/i, // This regex adds support for .scss, .sass and .css file types
                 use: [
