@@ -52,6 +52,10 @@ nav.neso-nav {
   .nav-head > .nav-brand {
     color: $_textColor;
     text-decoration: none;
+    padding: 0.5em;
+    &:hover {
+      background-color: $_dropdownBGColor;
+    }
   }
   .nav-head > .nav-menu-toggle {
     display: block;
@@ -244,8 +248,12 @@ nav.neso-nav.neso-nav-dark {
     }
   }
 
-  .nav-brand {
+  .nav-head > .nav-brand {
     color: $_textColor;
+    text-decoration: none;
+    &:hover {
+      background-color: $_dropdownBGColor;
+    }
   }
 
   .nav-list-item {
