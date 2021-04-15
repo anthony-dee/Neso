@@ -13,7 +13,7 @@ $_textColor: #000000;
 
 nav.neso-nav.no-js {
   .nav-head > .nav-menu-toggle {
-    visibility: hidden;
+    display: none;
   }
   .nav-main-menu {
     height: auto;
@@ -130,7 +130,6 @@ nav.neso-nav {
         box-sizing: border-box;
       }
       .nav-dropdown-toggle {
-        display: block;
         border: none;
         background-color: $_navBaseColor;
         font-size: 1em;
@@ -192,7 +191,7 @@ nav.neso-nav {
       display: flex;
     }
     .nav-head > .nav-menu-toggle {
-      visibility: hidden;
+      display: none;
     }
     .nav-main-menu {
       padding: 0;
