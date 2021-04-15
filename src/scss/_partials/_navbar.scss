@@ -33,11 +33,13 @@ nav.neso-nav {
   top: 0;
   z-index: 10;
   box-sizing: border-box;
-  font-family: sans-serif;
   color: $_textColor;
   background-color: $_navBaseColor;
   * {
     box-sizing: border-box;
+  }
+  button {
+    font-family: inherit;
   }
   .nav-container {
     width: min(100%, 800px);
