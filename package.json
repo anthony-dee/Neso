@@ -1,6 +1,6 @@
 {
   "name": "neso-js",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/neso.js",
   "scripts": {
