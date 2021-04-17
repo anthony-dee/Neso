@@ -10,7 +10,7 @@ reach for it.
 Production ready code is provided in the `dist` directory and can be linked to from your HTML using 
 the following `link` and `script` tags to your HTML:
 
-- `<link rel="stylesheet" href="main.css">`
+- `<link rel="stylesheet" href="neso.css">`
 - `<script src="neso.js"></script>`
 
 ## Installing via NPM
