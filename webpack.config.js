@@ -39,7 +39,9 @@ module.exports = {
         ],
     },
     plugins: [
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: 'neso.css'
+        })
     ],
     watchOptions: {
         aggregateTimeout: 200,
