@@ -27,7 +27,7 @@ There are light and dark variants available. The default colour palette of the l
 and the dark scheme uses three shades of grey. To use the dark scheme, add the `neso-nav-dark` class to the `nav` element's `class` 
 attribute.
 
-Example HTML can be found in the `[/dist/index.html](https://github.com/anthony-dee/Neso/blob/main/dist/index.html "/dist/index.html on GitHub")`
+Example HTML can be found in the [/dist/index.html](https://github.com/anthony-dee/Neso/blob/main/dist/index.html "/dist/index.html on GitHub") on Github.
 
 
 ### Initialisation using code in the `dist` directory
