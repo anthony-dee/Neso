@@ -157,6 +157,7 @@ export default class NavBar {
 
 // Function called to expand the content with an animation
     expand() {
+        this.setMenuHeight()
         this.isExpanding = true;
         const startHeight = `0px`;
         const endHeight = `${this.menuHeight}px`;
