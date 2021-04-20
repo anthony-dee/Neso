@@ -202,6 +202,7 @@ export default class NavBar {
         let height = 0;
 
         for (let i = 0; i < this.menu.children.length; i++) {
+            console.log(this.menu.children[i].offsetHeight);
             height += this.menu.children[i].offsetHeight;
         }
 
