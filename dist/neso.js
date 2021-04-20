@@ -38,7 +38,8 @@ class NavBar {
     this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     this.transitionTime = this.prefersReducedMotion ? 10 : 400;
     this.setMenuHeight();
-    document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
+    this.setNavHeightCSSVar(); //document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
+
     this.easing = 'ease';
     this.animation = null;
     this.isNavMenuOpen = false;
@@ -178,6 +179,7 @@ class NavBar {
 
   expand() {
     this.setMenuHeight();
+    this.setNavHeightCSSVar();
     this.isExpanding = true;
     const startHeight = `0px`;
     const endHeight = `${this.menuHeight}px`;
@@ -224,11 +226,14 @@ class NavBar {
     let height = 0;
 
     for (let i = 0; i < this.menu.children.length; i++) {
-      console.log(this.menu.children[i].offsetHeight);
       height += this.menu.children[i].offsetHeight;
     }
 
     return height;
+  }
+
+  setNavHeightCSSVar() {
+    document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
   }
 
 }
