@@ -15,8 +15,7 @@ export default class NavBar {
         this.prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         this.transitionTime = this.prefersReducedMotion ? 10 : 400;
         this.setMenuHeight();
-
-        document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
+        this.setNavHeightCSSVar();
 
         this.easing = 'ease';
         this.animation = null;
@@ -157,6 +156,8 @@ export default class NavBar {
 
 // Function called to expand the content with an animation
     expand() {
+        this.setMenuHeight();
+        this.setNavHeightCSSVar();
         this.isExpanding = true;
         const startHeight = `0px`;
         const endHeight = `${this.menuHeight}px`;
@@ -205,5 +206,9 @@ export default class NavBar {
         }
 
         return height;
+    }
+
+    setNavHeightCSSVar() {
+        document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
     }
 }
