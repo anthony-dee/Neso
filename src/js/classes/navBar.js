@@ -17,8 +17,6 @@ export default class NavBar {
         this.setMenuHeight();
         this.setNavHeightCSSVar();
 
-        //document.documentElement.style.setProperty('--nav-height', `${this.getMenuHeight()}px`);
-
         this.easing = 'ease';
         this.animation = null;
         this.isNavMenuOpen = false;
