@@ -216,8 +216,8 @@ nav.neso-nav {
         .nav-dropdown {
           position: absolute;
           z-index: 10;
-          top: 100%;
-          left: 0;
+          top: calc(100% - 0.2em);
+          left: 0.2em;
           align-items: start;
           padding: 0.4em 0;
         }
